@@ -42,7 +42,7 @@ class Artist
   #  name.downcase.gsub(' ', '-')
   #end
 
-  include to_param
+  include Paramable
   extend Findable
 
   extend Memorable::ClassMethods
