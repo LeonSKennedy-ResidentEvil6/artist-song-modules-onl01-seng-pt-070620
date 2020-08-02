@@ -36,7 +36,7 @@ class Song
   #  name.downcase.gsub(' ', '-')
   #end
 
-include Paramable
+  include Paramable
   extend Findable
 
   extend Memorable::ClassMethods
