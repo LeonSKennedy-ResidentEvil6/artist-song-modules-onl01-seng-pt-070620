@@ -7,9 +7,11 @@ class Artist
   @@artists = []
 
   def initialize
-    @@artists << self
+    #@@artists << self
+    super
     @songs = []
   end
+
 
   def self.find_by_name(name)
     @@artists.detect{|a| a.name == name}
@@ -27,9 +29,6 @@ class Artist
   #  self.all.count
   #end
 
-  extend reset_all
-  extend count
-
   def add_song(song)
     @songs << song
     song.artist = self
@@ -44,4 +43,9 @@ class Artist
   #end
 
   include to_param
+  extend Findable
+
+  extend Memorable::ClassMethods
+  include Memorable::InstanceMethods
+
 end

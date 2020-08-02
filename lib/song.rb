@@ -10,6 +10,8 @@ class Song
     @@songs << self
   end
 
+
+
   def self.find_by_name(name)
     @@songs.detect{|a| a.name == name}
   end
@@ -26,9 +28,6 @@ class Song
   #  self.all.count
   #end
 
-  extend reset_all
-  extend count
-
   def artist=(artist)
     @artist = artist
   end
@@ -38,4 +37,9 @@ class Song
   #end
 
   include to_param
+  extend Findable
+
+  extend Memorable::ClassMethods
+  include Memorable::InstanceMethods
+
 end
